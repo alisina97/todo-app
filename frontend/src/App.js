@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import react, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function App() {
+
+  const [Tasks, setTasks] = useState([]);
+
+  useEffect( () => {
+    axios.get('http://localhost:8086')
+    .then( res => setTasks(res.data))
+    .catch(e => console.log("error"));
+  }, [])
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <table className="table">
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>Deadline</th>
+          </tr>
+        </thead>
+        <tbody>
+          {Tasks.map((data, i) => (
+            <tr key={i}>
+              <td>{data.TASK}</td>
+              <td>{data.DEADLINE}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
