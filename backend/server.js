@@ -27,6 +27,15 @@ app.get('/', (req, res) => {
     })
 })
 
+app.delete('/:ID', (req, res) => {
+    db.query("DELETE FROM TASKS WHERE ID = ?", [req.params.ID], (err, data) => {
+        if (err) {
+            return res.json("Error deleting from database");
+        }
+        return res.json(data);
+    });
+});
+
 
 app.listen(8086, () => {
     console.log("Hello from backend!");
