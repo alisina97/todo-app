@@ -26,6 +26,12 @@ function App() {
     return now.toLocaleDateString(undefined, options);
   };
 
+  const formatDeadline = (dateString) => {
+    const options = { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' };
+    const date = new Date(dateString);
+    return date.toLocaleDateString(undefined, options);
+  };
+
   const fetchData = async () => {
     try {
       const res = await axios.get('http://localhost:8086');
@@ -63,7 +69,7 @@ function App() {
   return (
     <div className="container">
       <div className='row mt-5 mb-3'>
-        <h1>{getGreeting()}, Ali!</h1>
+        <h1>{getGreeting()}, Ali! 👋</h1>
         <p style={{ color: 'gray', fontSize: '1.2rem' }}>{formatDate()}</p>
       </div>
       <div className="row mb-5">
@@ -73,7 +79,7 @@ function App() {
               type="text"
               className="form-control"
               placeholder="Task Name"
-              value={Task} // Bind input value to state
+              value={Task} 
               onChange={e => setTask(e.target.value)}
             />
           </div>
@@ -101,7 +107,7 @@ function App() {
           {Tasks.map((data, i) => (
             <tr key={i}>
               <td>{data.TASK}</td>
-              <td>{data.DEADLINE}</td>
+              <td>{formatDeadline(data.DEADLINE)}</td>
               <td>
                 <IconButton 
                   color="success" 
