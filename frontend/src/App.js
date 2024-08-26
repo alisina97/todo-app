@@ -11,6 +11,21 @@ function App() {
   const [Tasks, setTasks] = useState([]);
   const [Task, setTask] = useState('');
 
+  const getGreeting = () => {
+    const now = new Date();
+    const hour = now.getHours();
+
+    if (hour < 12) return 'Good morning';
+    if (hour < 18) return 'Good afternoon';
+    return 'Good evening';
+  };
+
+  const formatDate = () => {
+    const now = new Date();
+    const options = { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' };
+    return now.toLocaleDateString(undefined, options);
+  };
+
   const fetchData = async () => {
     try {
       const res = await axios.get('http://localhost:8086');
@@ -26,7 +41,7 @@ function App() {
     try {
       await axios.post('http://localhost:8086', { Task });
       fetchData();  
-      setTask('');
+      setTask(''); 
     } catch (e) {
       console.log("Error adding task:", e);
     }
@@ -47,10 +62,10 @@ function App() {
 
   return (
     <div className="container">
-      <div className='row mt-5 mb-5'>
-        <h1>Good morning, Ali!</h1>
+      <div className='row mt-5 mb-3'>
+        <h1>{getGreeting()}, Ali!</h1>
+        <p style={{ color: 'gray', fontSize: '1.2rem' }}>{formatDate()}</p>
       </div>
-
       <div className="row mb-5">
         <form onSubmit={handleAddTask} className="d-flex w-100">
           <div className="flex-grow-1 me-2">
@@ -66,7 +81,7 @@ function App() {
             <IconButton
               type="submit"
               color="primary"
-              style={{ height: '100%' }} // Ensure the button height matches the input height
+              style={{ height: '100%' }} 
             >
               <AddIcon />
             </IconButton>
