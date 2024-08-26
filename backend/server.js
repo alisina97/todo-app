@@ -27,6 +27,15 @@ app.get('/', (req, res) => {
     })
 })
 
+app.post('/', (req, res) => {
+    db.query('INSERT INTO TASKS (TASK) VALUES (?)', [req.body.Task], (err, data) => {
+        if (err) {
+            res.json(err);
+        } 
+        res.json(data);
+    })
+})
+
 app.delete('/:ID', (req, res) => {
     db.query("DELETE FROM TASKS WHERE ID = ?", [req.params.ID], (err, data) => {
         if (err) {
