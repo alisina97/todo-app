@@ -1,70 +1,109 @@
-# Getting Started with Create React App
+# Task Management App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple task management application built with React and Express. Users can add, view, and delete tasks, with deadlines formatted in a user-friendly manner.
 
-## Available Scripts
+## Screenshots
 
-In the project directory, you can run:
+Home Screen:
 
-### `npm start`
+![Home Screen](frontend/Screenshot.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Add new tasks
+- View list of tasks with deadlines
+- Delete tasks
+- Responsive design
 
-### `npm test`
+## Technologies Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React
+- Express
+- Axios
+- Bootstrap
+- Material-UI
 
-### `npm run build`
+## Setup
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js (v14 or later)
+- npm (v6 or later)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1. Clone the repository:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```bash
+   git clone https://github.com/yourusername/your-repo.git
+   cd your-repo
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Install dependencies for the frontend:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   Navigate to the frontend directory (if applicable) and run:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```bash
+   cd client
+   npm install
+   ```
 
-## Learn More
+3. Install dependencies for the backend:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   Navigate to the backend directory (if applicable) and run:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ```bash
+   cd server
+   npm install
+   ```
 
-### Code Splitting
+4. Set up environment variables:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   Create a `.env` file in the server directory with the following content:
 
-### Analyzing the Bundle Size
+   ```env
+   PORT=8086
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   Adjust the `PORT` value if necessary.
 
-### Making a Progressive Web App
+5. Start the development server:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+   For the backend:
 
-### Advanced Configuration
+   ```bash
+   cd server
+   npm start
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+   For the frontend:
 
-### Deployment
+   ```bash
+   cd client
+   npm start
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+   The frontend will be available at [http://localhost:3000](http://localhost:3000), and the backend API will be available at [http://localhost:8086](http://localhost:8086).
 
-### `npm run build` fails to minify
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Open the app in your browser at [http://localhost:3000](http://localhost:3000).
+- Enter a task name in the input field and click the "Add" button to create a new task.
+- The tasks will be displayed in a table with deadlines.
+- Use the delete button to remove tasks.
+
+## Contributing
+
+Feel free to open an issue or submit a pull request if you have any improvements or suggestions!
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Notes
+
+- Replace `https://github.com/yourusername/your-repo.git` with your actual repository URL.
+- Update paths to screenshots according to your project's directory structure.
+- Add any additional setup instructions or configuration details specific to your project.
+
+Let me know if there's anything else you’d like to include!

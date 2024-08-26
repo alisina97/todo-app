@@ -81,7 +81,8 @@ function App() {
               placeholder="Task Name"
               value={Task} 
               onChange={e => setTask(e.target.value)}
-            />
+              style={{backgroundColor: "#F6F6F6"}}
+              />
           </div>
           <div>
             <IconButton
